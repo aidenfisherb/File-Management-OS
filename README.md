@@ -23,5 +23,7 @@ Roles:
 
 - A new program file starts with `#:project ../Shared` and `#:property PublishAot=false` (see `Csv/CsvCreate.cs`).
 - Output file: `data/csv_demo.csv` (no header row, one record per line).
+- Output file: `data/json_demo.json` (one JSON array of objects; keys `FirstName`, `LastName`, `DateOfBirth`, `Phone`, `Street`, `City`, `State`, `Zip`, all strings). JSON API: `System.Text.Json` (built into .NET). All three JSON programs use the path in `DataPaths.JsonFile` and the settings in `PersonJson.Options` (`Shared/PersonJson.cs`) so the keys match.
+- JSON Add parses the whole file before writing anything. If the file is missing or is not valid JSON, it reports the error and leaves the file unchanged. Each run of JSON Add adds 50 more records, so run JSON Create first for a fresh 100 → 150. To reset fully, delete `data/json_demo.json`.
 - Field formats: date of birth `YYYY-MM-DD`; phone `205-555-####` (initial batch `1001`–`1100`, added batch `2001`–`2050`); ZIP is 5-digit text (leading zeros kept).
 - Fresh run: CSV Create replaces the file, so running Create then Append always gives 100 → 150. To reset fully, delete `data/csv_demo.csv`.

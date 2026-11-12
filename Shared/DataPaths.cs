@@ -7,5 +7,5 @@ public static class DataPaths
 
     public static string CsvFile { get; } = Path.Combine(DataDir, "csv_demo.csv");
 
-    // add a json file path here when needed for demo
+    public static string JsonFile { get; } = Path.Combine(DataDir, "json_demo.json");
 }
