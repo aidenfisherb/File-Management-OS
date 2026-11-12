@@ -16,7 +16,7 @@ Roles:
 |---|---|---|
 | 1 | CSV Create | `dotnet run Csv/CsvCreate.cs` |
 | 2 | CSV Append | `dotnet run Csv/CsvAppend.cs` |
-| 3 | CSV Read | `dotnet run Csv/CsvRead.cs` |
+| 3 | CSV Read | `dotnet run Csv/CavParserDemo.cs` |
 | 4 | JSON Create | `dotnet run Json/JsonCreate.cs` |
 | 5 | JSON Add | `dotnet run Json/JsonAdd.cs` |
 | 6 | JSON Read | `dotnet run Json/JsonRead.cs` |
