@@ -1,6 +1,6 @@
 namespace FileManagementOS.Shared;
 
-// person class with necessary fields as strings. 
+// person class with necessary fields as strings 
 public sealed record Person(
     string FirstName,
     string LastName,
@@ -11,7 +11,7 @@ public sealed record Person(
     string State,
     string Zip)
 {
-    // turns the record into one CSV line: 8 fields joined by commas, no quoting.
+    // turns the record into one CSV line
     public string ToCsvLine()
     {
         string[] fields = [FirstName, LastName, DateOfBirth, Phone, Street, City, State, Zip];

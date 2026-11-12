@@ -1,15 +1,12 @@
 namespace FileManagementOS.Shared;
 
-// makes random fictional records.
-// The phone number is NOT random: it marks the batch and position so we can check order.
-
+// makes random records.
 public static class RecordGenerator
 {
     private static readonly string[] FirstNames = ["Jane", "Sam", "Maria", "Liam", "Ava", "Noah", "Zoe", "Mia"];
     private static readonly string[] LastNames = ["Doe", "Lee", "Garcia", "Smith", "Nguyen", "Brown", "Patel", "Clark"];
     private static readonly string[] Streets = ["Oak St", "Maple Ave", "Pine Rd", "Cedar Ln"];
 
-    // city, state, ZIP kept together; Boston and Newark ZIPs start with 0 to prove leading zeros survive
     private static readonly (string City, string State, string Zip)[] Places =
     [
         ("Boston", "MA", "02134"),

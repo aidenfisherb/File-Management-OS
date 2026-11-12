@@ -1,4 +1,3 @@
-// Creates data/csv_demo.csv and writes 100 records, one per line, no header row.
 #:project ../Shared
 #:property PublishAot=false
 
@@ -12,12 +11,12 @@ try
     List<Person> people = RecordGenerator.Generate(100, batch: 1);
     Directory.CreateDirectory(DataPaths.DataDir);
 
-    // FileMode.Create: make the file, or wipe an existing one to 0 bytes.
-    // "using" closes the file at the end of the block, even if an error is thrown.
+    // create a new file in the "path" variable.
     using (var writer = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write)))
     {
         foreach (Person person in people)
         {
+            // write each record as a csv line 
             writer.WriteLine(person.ToCsvLine());
         }
     }
@@ -27,13 +26,11 @@ try
 }
 catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
 {
-    // file access error: locked file, no permission, disk full...
     Console.Error.WriteLine($"CSV create failed: could not write {path}. {ex.Message}");
     return 1;
 }
 catch (InvalidDataException ex)
 {
-    // data error: a value would break the CSV format
     Console.Error.WriteLine($"CSV create failed: bad record data. {ex.Message}");
     return 1;
 }

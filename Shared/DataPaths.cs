@@ -1,6 +1,6 @@
 namespace FileManagementOS.Shared;
 
-// one shared location for the data folder and demos
+// shared location for the data folder and demos
 public static class DataPaths
 {
     public static string DataDir { get; } = Path.Combine(Directory.GetCurrentDirectory(), "data");
