@@ -2,7 +2,7 @@
 // Opens data/json_demo.json, parses the array into a list, prints a labeled table.
 #:project ../Shared
 #:property PublishAot=false
-#:include Parsing/JsonParser.cs
+#:include ../Parsing/JsonParser.cs
 
 using System.Text.Json;
 using FileManagementOS.Shared;

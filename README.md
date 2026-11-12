@@ -21,7 +21,7 @@ Roles:
 | 5 | JSON Add | `dotnet run Json/JsonAdd.cs` |
 | 6 | JSON Read | `dotnet run Json/JsonRead.cs` |
 
-- The file parsers are grouped in `Json/Parsing/` (`CsvParser.cs`, `JsonParser.cs`); a program pulls one in with a `#:include` line.
+- The file parsers are grouped in `Parsing/` (`CsvParser.cs`, `JsonParser.cs`); a program pulls one in with a `#:include` line.
 - A new program file starts with `#:project ../Shared` and `#:property PublishAot=false` (see `Csv/CsvCreate.cs`).
 - Output file: `data/csv_demo.csv` (no header row, one record per line).
 - Output file: `data/json_demo.json` (one JSON array of objects; keys `FirstName`, `LastName`, `DateOfBirth`, `Phone`, `Street`, `City`, `State`, `Zip`, all strings). JSON API: `System.Text.Json` (built into .NET). All three JSON programs use the path in `DataPaths.JsonFile` and the settings in `PersonJson.Options` (`Shared/PersonJson.cs`) so the keys match.

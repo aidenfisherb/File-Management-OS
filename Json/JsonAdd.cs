@@ -2,7 +2,7 @@
 // Reads data/json_demo.json, parses the array, adds 50 records to the end, rewrites the file as valid JSON.
 #:project ../Shared
 #:property PublishAot=false
-#:include Parsing/JsonParser.cs
+#:include ../Parsing/JsonParser.cs
 
 using System.Text.Json;
 using FileManagementOS.Shared;
