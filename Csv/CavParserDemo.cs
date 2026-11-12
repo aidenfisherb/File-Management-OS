@@ -2,7 +2,7 @@
 // Opens data/csv_demo.csv, parses all records with TextFieldParser, prints a labeled table.
 #:project ../Shared
 #:property PublishAot=false
-#:include CsvParser.cs
+#:include ../Json/Parsing/CsvParser.cs
 
 
 using FileManagementOS.Shared;

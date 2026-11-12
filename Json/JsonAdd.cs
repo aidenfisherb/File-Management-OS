@@ -1,6 +1,8 @@
+#!/usr/bin/env dotnet
 // Reads data/json_demo.json, parses the array, adds 50 records to the end, rewrites the file as valid JSON.
 #:project ../Shared
 #:property PublishAot=false
+#:include Parsing/JsonParser.cs
 
 using System.Text.Json;
 using FileManagementOS.Shared;
@@ -17,7 +19,7 @@ if (!File.Exists(path))
 try
 {
     // Step 1: parse the existing array. If this throws, nothing below runs, so the file is left untouched.
-    List<Person> people = PersonJson.ReadFile(path);
+    List<Person> people = new JsonParser(path).Parse();
     List<Person> original = [.. people]; // copy of the original records, used to check them afterwards
     int before = people.Count;
 
@@ -35,7 +37,7 @@ try
     File.Move(tempPath, path, overwrite: true);
 
     // Step 4: read the file back to prove it is valid JSON and the originals survived in order.
-    List<Person> check = PersonJson.ReadFile(path);
+    List<Person> check = new JsonParser(path).Parse();
     bool preserved = check.Take(before).SequenceEqual(original);
 
     Console.WriteLine($"Added {check.Count - before} records to {path}");

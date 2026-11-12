@@ -1,6 +1,8 @@
+#!/usr/bin/env dotnet
 // Opens data/json_demo.json, parses the array into a list, prints a labeled table.
 #:project ../Shared
 #:property PublishAot=false
+#:include Parsing/JsonParser.cs
 
 using System.Text.Json;
 using FileManagementOS.Shared;
@@ -16,7 +18,7 @@ if (!File.Exists(path))
 
 try
 {
-    List<Person> people = PersonJson.ReadFile(path);
+    List<Person> people = new JsonParser(path).Parse();
 
     // same column labels and widths as the CSV table
     Console.WriteLine(
